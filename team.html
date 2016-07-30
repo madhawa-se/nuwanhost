@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html ng-app="myapp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            /* Global */
+
+            .title-hr {
+                height: 4px;
+                width: 60px;
+                margin: 25px auto 20px;
+                background: #0ccfa8;
+                border-radius: 4px;
+            }
+            img { max-width:100%; }
+
+            a {
+                -webkit-transition: all 150ms ease;
+                -moz-transition: all 150ms ease;
+                -ms-transition: all 150ms ease;
+                -o-transition: all 150ms ease;
+                transition: all 150ms ease; 
+            }
+
+            a:hover {
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+                filter: alpha(opacity=50); /* IE7 */
+                opacity: 0.6;
+                text-decoration: none;
+            }
+
+
+
+            body{
+                border-top:0;
+                background: #0e1a1a;
+            }
+
+            .thumbnails > .col-sm-3 {
+                margin-bottom: 50px;
+            }
+
+            /* Page Header */
+            .page-header {
+                background: #f9f9f9;
+                margin: -30px -40px 40px;
+                padding: 20px 40px;
+                border-top: 4px solid #ccc;
+                color: #999;
+                text-transform: uppercase;
+            }
+
+            .page-header h3 {
+                line-height: 0.88rem;
+                color: #000;
+            }
+
+            ul.thumbnails { 
+                margin-bottom: 0px;
+            }
+
+
+
+            /* Thumbnail Box */
+            .caption h4 {
+                color: #444;
+            }
+
+            .caption p {  
+                color: #999;
+            }
+
+
+
+            /* Carousel Control */
+            .control-box {
+                text-align: right;
+                width: 100%;
+            }
+            .carousel-control{
+                background: #666;
+                border: 0px;
+                border-radius: 0px;
+                display: inline-block;
+                font-size: 34px;
+                font-weight: 200;
+                line-height: 18px;
+                opacity: 0.5;
+                padding: 4px 10px 0px;
+                position: static;
+                height: 30px;
+                width: 15px;
+            }
+
+
+
+            /* Mobile Only */
+            @media (max-width: 767px) {
+                .page-header, .control-box {
+                    text-align: center;
+                } 
+            }
+            @media (max-width: 479px) {
+                .caption {
+                    word-break: break-all;
+                }
+            }
+
+
+            li { list-style-type:none;}
+
+            ::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
+            ::-moz-selection { background: #ff5e99; color: #FFFFFF; }
+
+            /*start slider wrap*/
+
+            .slider-wrapper{
+                margin-top: 50px;
+            }
+
+            /* start team-member */
+            .team-member>a{
+                display: inline-block;
+                background-color: rgba(66, 228, 171, 0.6);
+                width: 100%;
+                padding: 30px 0px;
+            }
+            .team-member>a>img{
+                width: 100px;
+                border-radius: 50% !important;
+                border: 1px solid rgba(21, 21, 21, 0) !important;
+            }
+            .fff .caption{
+                background: rgba(0, 0, 0, 0.42) !important;
+                padding: 10px;
+            }
+            .title{
+                color: white;
+
+            }
+            /* end team member */
+            /*slide */
+            .slide-right,.slide-left{
+                font-size: 100px;
+            }
+
+        </style>
+        <script src="js/jquery.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            // Carousel Auto-Cycle
+            $(document).ready(function () {
+                $('.carousel').carousel({
+                    interval: 60000
+                })
+            });
+
+
+            var app = angular.module('myapp', []);
+            app.controller('userCTRL', function ($scope) {
+
+            });
+            app.directive('teamUser', function () {
+                return{
+                    scope: {name: '@', id: '@', role: '@', specialty: '@'},
+                    templateUrl: "directives/teamuser.html"
+                };
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row text-center">
+                <h4 class="title">we have a awesome team</h4>
+                <div class="title-hr"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 slider-wrapper" ng-controller="userCTRL">
+            <div class="col-lg-1" data-slide="next" href="#myCarousel"><i class="glyphicon glyphicon-chevron-left slide-left"></i></div>
+            <div class="carousel slide col-lg-10" id="myCarousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <ul class="thumbnails">
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="1" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="2" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="3" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="4" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="5" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="6" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="7" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="8" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                        </ul>
+                    </div><!-- /Slide1 --> 
+                    <div class="item">
+                        <ul class="thumbnails">
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="9" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="10" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="11" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="12" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="13" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="14" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="15" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="16" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                        </ul>
+                    </div><!-- /Slide2 --> 
+                    <div class="item">
+                        <ul class="thumbnails">
+                            <li class="col-sm-3">	
+                            <team-user class="team-user" name="madhawa" id="17" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="18" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="19" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="20" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="21" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="22" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="23" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                            <li class="col-sm-3">
+                            <team-user class="team-user" name="madhawa" id="24" role='draftman' specialty='university of colombo'></team-user>
+                            </li>
+                        </ul>
+                    </div><!-- /Slide3 --> 
+                </div>
+                <!-- /.control-box -->   
+
+            </div><!-- /#myCarousel -->
+
+            <div class="col-lg-1" data-slide="prev" href="#myCarousel"><i class="glyphicon glyphicon-chevron-right slide-right"></i></div>
+        </div><!-- /.col-xs-12 -->          
+
+    </body>
+</html>

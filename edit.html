@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link  href="css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="js/jquery.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('activeedit', function ($scope) {
+                $scope.name = "test";
+            });
+
+            app.controller('tableCTRL', function ($scope) {
+                $scope.servises = [];
+                $scope.serviceText = "";
+
+                $scope.pushService = function () {
+                    $scope.servises.push($scope.serviceText);
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="panel">
+                    <h6 data-toggle="collapse" aria-expanded="false" data-target="#edit1">genaral</h6>
+                    <div id="edit1" class="collapse">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>title</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>top description</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>action text</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>service description</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>services list</label>
+                                <ul class="list-unstyled">
+                                    <li><input type="text"/></li>
+                                    <li><input type="text"/></li>
+                                    <li><input type="text"/></li>
+                                    <li><input type="text"/></li>
+                                    <li><input type="text"/></li>
+                                    <li><input type="text"/></li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <label>latest work description</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <h6 data-toggle="collapse" aria-expanded="false" data-target="#edit2">ceo information</h6>
+                    <div id="edit2" class="collapse">
+
+                        <div class="form-group">
+                            <label>mition text</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>ceo name</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>profile picture</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel">
+                    <h6 data-toggle="collapse" aria-expanded="false" data-target="#edit3">social media information</h6>
+                    <div id="edit3" class="collapse">
+
+                        <div class="form-group">
+                            <label>facebook url</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tweeter url</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>goole+ url</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel">
+                    <h6 data-toggle="collapse" aria-expanded="false" data-target="#edit4">address information</h6>
+                    <div id="edit4" class="collapse">
+
+                        <div class="form-group">
+                            <label>facebook url</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tweeter url</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>goole+ url</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                    </div>
+                </div> 
+                <div class="panel">
+                    <h6 data-toggle="collapse" aria-expanded="false" data-target="#edit6">services</h6>
+                    <div id="edit6" class="collapse" ng-controller="tableCTRL">
+                        <input class="form-control" type="text" value="pusing" ng-model="serviceText"><button class="btn btn-info" ng-click="pushService()">Add service</button>
+                        <ol class="list-group">
+                            <li class="list-group-item" ng-repeat="service in servises track by $index">
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control" placeholder="Suche" value=" {{service}}" readonly=""/>
+                                    <a class="glyphicon glyphicon-remove-sign form-control-feedback form-control-clear"  style="pointer-events: auto; text-decoration: none;cursor: pointer;"></a
+                                </div>
+                               
+                            </li>
+                        </ol>
+
+
+                    </div>
+                </div>
+                <div class="panel">
+                    <h6 data-toggle="collapse" aria-expanded="false" data-target="#edit5">logo settings</h6>
+                    <div id="edit5" class="collapse">
+
+                        <div class="form-group">
+                            <label>logo image</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
